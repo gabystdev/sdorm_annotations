@@ -1,0 +1,5 @@
+# build.yaml for Supabase Dart Client (runtime library)
+# Los builders se han movido al paquete supabase_dart_generators
+targets:
+  $default:
+    builders: {}
