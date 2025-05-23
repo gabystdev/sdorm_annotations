@@ -162,22 +162,16 @@ abstract class BaseDAO<T> implements DAO<T> {
   @override
   Future<int> count() async {
     final response = await _client.from(tableName).select(
-        '*',
-        const FetchOptions(
-          count: CountOption.exact,
-          head: true,
-        ));
+        '*')
+      .count();
     return response.count ?? 0;
   }
 
   @override
   Future<int> countWhere(Map<String, dynamic> conditions) async {
     var query = _client.from(tableName).select(
-        '*',
-        const FetchOptions(
-          count: CountOption.exact,
-          head: true,
-        ));
+        '*')
+      .count();
 
     // Apply each condition to the query
     conditions.forEach((field, value) {
